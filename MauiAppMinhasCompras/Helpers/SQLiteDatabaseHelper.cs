@@ -41,7 +41,7 @@ namespace MauiAppMinhasCompras.Helpers
 
         public void Search(string q) 
         { 
-            string sql = "SELECT * Produto WHERE descricao LIKE '%" + q + "%'"; 
+            string sql = "SELECT * FROM Produto WHERE descricao LIKE '%" + q + "%'"; 
                 //sempre usar o operador LIKE quando for SEARCH
         }
 

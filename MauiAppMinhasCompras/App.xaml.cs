@@ -10,10 +10,10 @@ namespace MauiAppMinhasCompras
         {
             get
             {
-                if (_db == null)  //se campo _db for nulo
+                if (_db == null)  //se campo _db for nulo nenhum objeto no campo
                 {
                     string path = Path.Combine(
-                        Environment.GetFolderPath(
+                        Environment.GetFolderPath(     // pega informações de uma pasta
                             Environment.SpecialFolder.LocalApplicationData),
                         "banco_sqlite_compras.bd3");  //nome do arquivo
 
