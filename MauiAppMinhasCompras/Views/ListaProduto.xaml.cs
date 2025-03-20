@@ -19,7 +19,7 @@ public partial class ListaProduto : ContentPage
     {
         try
         {
-
+            lista.Clear(); // toda vez que abre tela de listagem ele limpa a tela
             List<Produto> tmp = await App.Db.GetAll();
             tmp.ForEach(i => lista.Add(i)); // para cada item na lista, chama o ObserveCollection e o Add
 
