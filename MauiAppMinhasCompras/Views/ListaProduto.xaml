@@ -11,10 +11,10 @@
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <SearchBar x:Name=" txt_search"
-                   Placeholder="Busca de Produtos" 
-                   TextChanged="txt_search_TextChanged">
-            
-        </SearchBar>
+                 Placeholder="Busca de Produtos"
+                   TextChanged="Txt_search_TextChanged"/>
+
+
         <!-- x name = Pega dado do usuário-->
             
            
@@ -34,7 +34,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Remover" />
+                            <MenuItem Text="Remover" Clicked="MenuItem_Clicked"  />
                         </ViewCell.ContextActions>
                         <Grid ColumnDefinitions="*, *, *, *, *, *">
                             <Label Grid.Column="0" Text="{Binding Id}" />
