@@ -18,10 +18,10 @@
         <!-- x name = Pega dado do usuário-->
             
            
-            <ListView x:Name="lst_produtos">  <!--aparece lista-->
+            <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">  <!--aparece lista-->
             <ListView.Header>
 
-                <Grid ColumnDefinitions="*, *, *, *, *, *">
+                <Grid ColumnDefinitions="*, *, *, *, *">
                     <Label Grid.Column="0" Text="ID" />
                     <Label Grid.Column="1" Text="Descrição" />
                     <Label Grid.Column="2" Text="Preço" />
