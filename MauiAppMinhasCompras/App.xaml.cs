@@ -28,6 +28,8 @@ namespace MauiAppMinhasCompras
         { 
             InitializeComponent();
 
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("pt-Br");  // faz valor aparecer em R$
+
             // MainPage = new AppShell();
             MainPage = new NavigationPage(new Views.ListaProduto());  //interface tela inicial
         }

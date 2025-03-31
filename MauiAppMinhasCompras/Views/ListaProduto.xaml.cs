@@ -13,7 +13,8 @@ public partial class ListaProduto : ContentPage
         InitializeComponent();
 
         lst_produtos.ItemsSource = lista;
-    }
+    } 
+    
 
     protected async override void OnAppearing()
     {
@@ -43,8 +44,11 @@ public partial class ListaProduto : ContentPage
     }
     private async void Txt_search_TextChanged(object sender, TextChangedEventArgs e)
     {
-        try {
+        try
+        {
             string q = e.NewTextValue;
+
+            lst_produtos.IsRefreshing = true;
 
             lista.Clear();
 
@@ -56,6 +60,11 @@ public partial class ListaProduto : ContentPage
         catch (Exception ex)
         {
             await DisplayAlert("Ops", ex.Message, "ok");
+        }
+        finally
+        {
+
+            lst_produtos.IsRefreshing=false;
         }
     }
 
@@ -102,6 +111,28 @@ public partial class ListaProduto : ContentPage
         catch (Exception ex)
         {
             DisplayAlert("Ops", ex.Message, "ok");
+        }
+    }
+
+    private async void lst_produtos_Refreshing(object sender, EventArgs e)
+    {
+
+        try
+        {
+
+            lista.Clear();
+
+            List<Produto> tmp = await App.Db.Search(q);
+
+            tmp.ForEach(i => lista.Add(i));
+
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "ok");
+        }  finally
+        {
+            lst_produtos.IsRefreshing = false;
         }
     }
 }
